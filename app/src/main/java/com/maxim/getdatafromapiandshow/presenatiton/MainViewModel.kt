@@ -16,10 +16,11 @@ class MainViewModel(
     private val dispatcher: CoroutineDispatcher = Dispatchers.Main
 ): ViewModel() {
     fun getItem() = viewModelScope.launch(dispatcher) {
-        communication.show(interactor.getItem().map().getText())
+        communication.showState(State.Progress)
+        interactor.getItem().map().show(communication)
     }
 
-    fun observe(owner: LifecycleOwner, observer: Observer<String>) {
+    fun observe(owner: LifecycleOwner, observer: Observer<State>) {
         communication.observe(owner, observer)
     }
 }

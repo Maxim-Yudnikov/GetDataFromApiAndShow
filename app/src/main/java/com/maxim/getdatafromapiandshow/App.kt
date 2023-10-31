@@ -2,11 +2,12 @@ package com.maxim.getdatafromapiandshow
 
 import android.app.Application
 import com.maxim.getdatafromapiandshow.core.net.FactService
-import com.maxim.getdatafromapiandshow.domain.BaseCommunication
+import com.maxim.getdatafromapiandshow.presenatiton.BaseCommunication
 import com.maxim.getdatafromapiandshow.domain.BaseDataModelToItemMapper
 import com.maxim.getdatafromapiandshow.domain.BaseFailureHandler
 import com.maxim.getdatafromapiandshow.domain.BaseInteractor
 import com.maxim.getdatafromapiandshow.domain.net.BaseCloudDataSource
+import com.maxim.getdatafromapiandshow.mocks.MockCloudDataSource
 import com.maxim.getdatafromapiandshow.presenatiton.MainViewModel
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor

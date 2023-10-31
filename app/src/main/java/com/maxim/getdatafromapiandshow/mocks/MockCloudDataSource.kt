@@ -1,4 +1,4 @@
-package com.maxim.getdatafromapiandshow
+package com.maxim.getdatafromapiandshow.mocks
 
 import com.maxim.getdatafromapiandshow.core.net.CloudDataSource
 import com.maxim.getdatafromapiandshow.domain.DataModel
