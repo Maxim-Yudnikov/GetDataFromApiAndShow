@@ -15,6 +15,7 @@ import retrofit2.converter.gson.GsonConverterFactory
 
 class App : Application() {
     lateinit var viewModel: MainViewModel
+    private val useMocks = false
 
     override fun onCreate() {
         super.onCreate()
@@ -25,7 +26,10 @@ class App : Application() {
 
         val retrofit = Retrofit.Builder().baseUrl("https://www.google.com").client(client)
             .addConverterFactory(GsonConverterFactory.create()).build()
-        val cloudDataSource = BaseCloudDataSource(retrofit.create(FactService::class.java))
+        val cloudDataSource = if (useMocks)
+            MockCloudDataSource()
+        else
+            BaseCloudDataSource(retrofit.create(FactService::class.java))
         val interactor =
             BaseInteractor(cloudDataSource, BaseFailureHandler(), BaseDataModelToItemMapper())
 
